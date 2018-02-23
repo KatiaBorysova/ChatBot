@@ -16,14 +16,13 @@ function setListenerOnSend() {
            getUserInput();	 
         }
     });
-}
+};
 
 function getUserInput() {
 	var userInput = $('input.message_input').val();
 		appendUserInput(userInput);
 		botAnswer(userInput);
-	
-}
+};
 
 function appendUserInput(input) {
 	$('ul.messages').append(replyTemplate(input, 'left'));
@@ -31,32 +30,30 @@ function appendUserInput(input) {
 	$('input.message_input').val('');
 	//Scroll chat window to last message
 	scrollToBottom();
-}
-
+};
 
 
 function botAnswer(input) {
 	var loweredInput = input.toLowerCase();
+	var answer;
+
+	var loweredInput = input.toLowerCase();
 	if (loweredInput === 'hello') {
-		var answer = 'Hello dear user'
-		appendBotAnswer(answer);
+		answer = 'Hello dear user'
 	} else if (loweredInput === 'bye') {
-		var answer = 'Have a nice day'
-		appendBotAnswer(answer);
+		answer = 'Have a nice day'
 	} else if (loweredInput === 'how are you?') {
-		var answer = 'I`m fine. And how are you?'
-		appendBotAnswer(answer);
+		answer = 'I`m fine. And how are you?'
+		
 	} else if (loweredInput.search('weather') >= 0) {
-		var answer = 'It is sunny'
-		appendBotAnswer(answer);
+		 answer = 'It is sunny'
 	} else if (loweredInput.search('temperature') >= 0) {
-		var answer = 'It`s +28 Outside'
-		appendBotAnswer(answer);
+		answer = 'It`s +28 Outside'
 	} else {
-		var answer = 'Sorry, can you rephrase your question?';
-		appendBotAnswer(answer);
+		answer = 'Sorry, can you rephrase your question?';
 	}
-}
+    appendBotAnswer(answer);
+};
 
 
 function appendBotAnswer(answer) {
@@ -65,7 +62,7 @@ function appendBotAnswer(answer) {
 		scrollToBottom();	
 	}, 1000);
 	
-}
+};
 
 function replyTemplate(input, messageSide) {
 	return '<li class="message ' + messageSide + ' appeared">'
@@ -76,7 +73,7 @@ function replyTemplate(input, messageSide) {
 				+'</div>'
 			+'</li>'
 
-}
+};
 
 function currentTime(){
 	var now = new Date();
@@ -91,8 +88,5 @@ function currentTime(){
 
 function scrollToBottom() {
 	$('ul.messages').animate({ scrollTop: $('ul.messages')[0].scrollHeight }, 300);
-}
-
-
-
+};
 
