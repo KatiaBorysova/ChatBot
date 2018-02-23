@@ -32,7 +32,6 @@ function appendUserInput(input) {
 	scrollToBottom();
 };
 
-
 function botAnswer(input) {
 	var loweredInput = input.toLowerCase();
 	var answer;
